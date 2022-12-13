@@ -1,0 +1,34 @@
+<%- include ../layouts/cabecera.ejs %> 
+<br>
+<div class="card">
+    <div class="card-header">
+        Formulario de Captura
+    </div>
+    <div class="card-body">
+        <h4 class="card-title"> Editar datos de las canciones </h4>
+        <p class="card-text">
+            <form method="post" action="../actualizar/">
+
+                <br>
+                    <input type="text" name="id" value="<%=cancion.id %> ">
+                
+                    <div class="form-group">
+                        <br>
+                      <label for=""> Nombre: </label>
+                      <input type="text" name="nombre" id="my-input" value="<%=cancion.nombre %> "class="form-control">
+                      </div>
+                    <div class="form-group">
+                        <label for=""> Grupo: </label>
+                        <input type="text" name="grupo" id="my-input" value="<%=cancion.grupo %>" class="form-control">
+                    </div>
+                
+                    <br>
+                    <button type="submit" class="btn btn-success"> Actualizar </button>
+                    <a class="btn btn-danger" href="/canciones" role="button"> Cancelar </a>
+                
+            </form>                
+        </p>
+    </div>
+</div>
+
+<%- include ../layouts/pie.ejs %> 

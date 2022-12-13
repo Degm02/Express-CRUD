@@ -1,0 +1,48 @@
+<%- include ../layouts/cabecera.ejs %> 
+    <br>
+    <a href="/canciones/crear" class="btn btn-primary" type="button"> Crear una nueva cancion </a>
+    <br>    
+
+    <br>
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Grupo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for( let cancion = 0; cancion < canciones.length; cancion++ ) { %>
+                <tr>
+                    <td> <%=canciones[cancion].id %> </td>
+                    <td> <%=canciones[cancion].nombre %> </td>
+                    <td> <%=canciones[cancion].grupo %> </td>
+                    <td> 
+                        
+                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+                        <form class="form-inline" method="get" action="/canciones/editar/<%=canciones[cancion].id %>">
+                            <button type="submit" class="btn btn-warning"> Editar </button>
+                            </div>
+                        </form>
+                        
+                    </div> | 
+                        
+                        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+                            <form class="form-inline" method="post" action="/canciones/eliminar/<%=canciones[cancion].id %>">
+                                <button type="submit" class="btn btn-danger"> Borrar </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+<%- include ../layouts/pie.ejs %>
